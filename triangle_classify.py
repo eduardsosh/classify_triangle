@@ -53,15 +53,8 @@ def classify_triangle(a, b, c) -> str:
     
 
 
-print(classify_triangle("-1", "2", "2"))
-print(classify_triangle("1", "20", "15,5"))
-print(classify_triangle("1000000000000000", "20", "15,5"))
-print(classify_triangle("15.5", "20", "15,5"))
-print(classify_triangle("0.001", "0.001", "0.001"))
-print(classify_triangle("3", "4", "5"))
-print(classify_triangle("-1", "2", "2"))
 
-def test_classify(*additional):
+def test_classify(*additional_tests):
     inputs = [("-1", "2", "2"),
               ("1", "20", "15,5"),
               ("1000000000000000", "20", "15,5"),
@@ -70,7 +63,15 @@ def test_classify(*additional):
               ("3", "4", "5"),
               ("-1", "2", "2")]
     
-    inputs.append(additional)
+    inputs.extend(additional_tests)
 
+    for item in inputs:
+        in_a = item[0]
+        in_b = item[1]
+        in_c = item[2]
+        print(classify_triangle(in_a, in_b, in_c))
+        
+
+test_classify(("10","10","10"),("5","5","5"))
 
 
